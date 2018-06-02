@@ -8,12 +8,10 @@ mongoose.connect(process.env.MONGODB_URI);
 const express = require('express');
 const app = express();
 
-const movieRouter = require('./routes/movies');
+// const movieRouter = require('./routes/movies');
+// app.use('/movies', movieRouter);
 
-app.use('/movies', movieRouter);
-
-app.get('/welcome', (req, res) => {
-  console.log('dish out welcome');
+app.get('/', (req, res) => {
   res.send('Welcome!');
 });
 

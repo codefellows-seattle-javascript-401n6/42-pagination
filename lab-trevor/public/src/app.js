@@ -63,25 +63,25 @@ class App extends Component {
         {this.state.index}-{this.state.index + 10} of {this.state.total} results.
       </p>
       <form onSubmit={this.setIndex}>
-        <input name="index" type="number" placeholder="start"/>
-        <button type="submit">search</button>
+        <input name="index" type="number" placeholder="enter a number to jump ahead"/>
+        <button type="submit">GO</button>
       </form>
 
       {this.state.loading && <p>Loading...</p>}
 
       {!this.state.loading && this.state.players.map((player, i) => {
-        console.log('player', player.current_team)
         return <div key={player._id}>
-        <p>{player.name}</p>
-        <p>{player.current_team}</p>
-        <p>{player.height}</p>
-        <p>{player.birth_date}</p>
+        <p>name: {player.name}</p>
+        <p>position: {player.position}</p>
+        <p>current team: {player.current_team}</p>
+        <p>height: {player.height}</p>
+        <p>DOB: {player.birth_date}</p>
         </div>
       })}
 
       <p>
-        <button onClick={this.getPrev}>previous</button>
-        <button onClick={this.getNext}>next</button>
+        <button onClick={this.getPrev}>previous 10</button>
+        <button onClick={this.getNext}>next 10</button>
       </p>
     </Fragment>
   }

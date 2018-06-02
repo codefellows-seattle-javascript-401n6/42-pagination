@@ -98,7 +98,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({9:[function(require,module,exports) {
+})({7:[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -189,7 +189,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 	return to;
 };
-},{}],12:[function(require,module,exports) {
+},{}],10:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -243,7 +243,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-},{}],7:[function(require,module,exports) {
+},{}],8:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -261,7 +261,7 @@ if (undefined !== 'production') {
 }
 
 module.exports = emptyObject;
-},{}],8:[function(require,module,exports) {
+},{}],12:[function(require,module,exports) {
 "use strict";
 
 /**
@@ -298,7 +298,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],10:[function(require,module,exports) {
+},{}],9:[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -361,7 +361,7 @@ if (undefined !== 'production') {
 }
 
 module.exports = warning;
-},{"./emptyFunction":8}],13:[function(require,module,exports) {
+},{"./emptyFunction":12}],13:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -435,7 +435,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 }
 
 module.exports = checkPropTypes;
-},{"fbjs/lib/invariant":12,"fbjs/lib/warning":10,"./lib/ReactPropTypesSecret":13}],5:[function(require,module,exports) {
+},{"fbjs/lib/invariant":10,"fbjs/lib/warning":9,"./lib/ReactPropTypesSecret":13}],5:[function(require,module,exports) {
 /** @license React v16.4.0
  * react.development.js
  *
@@ -1904,7 +1904,7 @@ if (undefined !== "production") {
     module.exports = react;
   })();
 }
-},{"object-assign":9,"fbjs/lib/invariant":12,"fbjs/lib/emptyObject":7,"fbjs/lib/warning":10,"fbjs/lib/emptyFunction":8,"prop-types/checkPropTypes":11}],3:[function(require,module,exports) {
+},{"object-assign":7,"fbjs/lib/invariant":10,"fbjs/lib/emptyObject":8,"fbjs/lib/warning":9,"fbjs/lib/emptyFunction":12,"prop-types/checkPropTypes":11}],3:[function(require,module,exports) {
 'use strict';
 
 if (undefined === 'production') {
@@ -1983,7 +1983,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],16:[function(require,module,exports) {
+},{}],17:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2072,7 +2072,7 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],22:[function(require,module,exports) {
+},{}],20:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -2095,7 +2095,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":23}],17:[function(require,module,exports) {
+},{"./isNode":23}],16:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -2133,7 +2133,7 @@ function containsNode(outerNode, innerNode) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":22}],20:[function(require,module,exports) {
+},{"./isTextNode":20}],22:[function(require,module,exports) {
 'use strict';
 
 /**
@@ -2164,7 +2164,7 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],19:[function(require,module,exports) {
+},{}],18:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2201,7 +2201,7 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":20}],21:[function(require,module,exports) {
+},{"./hyphenate":22}],21:[function(require,module,exports) {
 "use strict";
 
 /**
@@ -2231,7 +2231,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],18:[function(require,module,exports) {
+},{}],19:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -19551,7 +19551,7 @@ if (undefined !== "production") {
     module.exports = reactDom;
   })();
 }
-},{"fbjs/lib/invariant":12,"react":3,"fbjs/lib/warning":10,"fbjs/lib/ExecutionEnvironment":14,"object-assign":9,"fbjs/lib/emptyFunction":8,"prop-types/checkPropTypes":11,"fbjs/lib/getActiveElement":15,"fbjs/lib/shallowEqual":16,"fbjs/lib/containsNode":17,"fbjs/lib/emptyObject":7,"fbjs/lib/hyphenateStyleName":19,"fbjs/lib/camelizeStyleName":18}],4:[function(require,module,exports) {
+},{"fbjs/lib/invariant":10,"react":3,"fbjs/lib/warning":9,"fbjs/lib/ExecutionEnvironment":14,"object-assign":7,"fbjs/lib/emptyFunction":12,"prop-types/checkPropTypes":11,"fbjs/lib/getActiveElement":15,"fbjs/lib/shallowEqual":17,"fbjs/lib/containsNode":16,"fbjs/lib/emptyObject":8,"fbjs/lib/hyphenateStyleName":18,"fbjs/lib/camelizeStyleName":19}],4:[function(require,module,exports) {
 'use strict';
 
 function checkDCE() {
@@ -19690,11 +19690,11 @@ var App = function (_Component) {
         _react2.default.createElement(
           'form',
           { onSubmit: this.setIndex },
-          _react2.default.createElement('input', { name: 'index', type: 'number', placeholder: 'start' }),
+          _react2.default.createElement('input', { name: 'index', type: 'number', placeholder: 'enter a number to jump ahead' }),
           _react2.default.createElement(
             'button',
             { type: 'submit' },
-            'search'
+            'GO'
           )
         ),
         this.state.loading && _react2.default.createElement(
@@ -19703,28 +19703,37 @@ var App = function (_Component) {
           'Loading...'
         ),
         !this.state.loading && this.state.players.map(function (player, i) {
-          console.log('player', player.current_team);
           return _react2.default.createElement(
             'div',
             { key: player._id },
             _react2.default.createElement(
               'p',
               null,
+              'name: ',
               player.name
             ),
             _react2.default.createElement(
               'p',
               null,
+              'position: ',
+              player.position
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'current team: ',
               player.current_team
             ),
             _react2.default.createElement(
               'p',
               null,
+              'height: ',
               player.height
             ),
             _react2.default.createElement(
               'p',
               null,
+              'DOB: ',
               player.birth_date
             )
           );
@@ -19735,12 +19744,12 @@ var App = function (_Component) {
           _react2.default.createElement(
             'button',
             { onClick: this.getPrev },
-            'previous'
+            'previous 10'
           ),
           _react2.default.createElement(
             'button',
             { onClick: this.getNext },
-            'next'
+            'next 10'
           )
         )
       );
@@ -19781,7 +19790,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58004' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '60901' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

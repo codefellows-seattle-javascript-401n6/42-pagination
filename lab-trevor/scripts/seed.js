@@ -18,7 +18,7 @@ Players.remove({})
         let saves = playerData.map(player => {
           player = {
             name: player.name,
-            positon: player.positon,
+            position: player.position,
             height: player.height,
             current_team: player.current_team,
             birth_date: player.birth_date,

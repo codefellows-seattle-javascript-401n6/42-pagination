@@ -29,38 +29,60 @@ class App extends Component {
     });
   }
 
+  getPrev = () => {
+    console.log('getting prev')
+    let index = Math.max(0, this.state.index - 10);
+    this.setState({index}, () => {
+      this.getplayers();
+      
+    });
+  }
+
+  getNext = () => {
+    console.log('getting next')
+    let index = this.state.index + 10;
+    this.setState({index}, () => {
+      this.getplayers();
+      
+    });
+  }
+
+  setIndex = (ev) =>{
+    ev.preventDefault();
+    let index = ev.target.index.value * 1;
+    this.setState({index: index}, () => {
+      this.getplayers();
+    })
+    
+  }
+
    render() {
     return <Fragment>
       <h1>NFL Football Players</h1>
       <p>
         {this.state.index}-{this.state.index + 10} of {this.state.total} results.
       </p>
-      {/* <form onSubmit={this.filter}>
-        <input id="name" type="text" placeholder="name"/>
-        <input id="minyear" type="number" placeholder="start year"/>
-        <input id="maxyear" type="number" placeholder="end year" />
-        <button type="submit">filter</button>
-      </form> */}
-      {/* <p>
-        <button onClick={this.sortByYear}>sort by year</button>
-        <button onClick={this.sortByTitle}>sort by title</button>
-      </p> */}
+      <form onSubmit={this.setIndex}>
+        <input name="index" type="number" placeholder="start"/>
+        <button type="submit">search</button>
+      </form>
 
-      {/* {this.state.loading && <p>Loading...</p>} */}
+      {this.state.loading && <p>Loading...</p>}
 
       {!this.state.loading && this.state.players.map((player, i) => {
         console.log('player', player.current_team)
         return <div key={player._id}>
         <p>{player.name}</p>
         <p>{player.current_team}</p>
-        
+        <p>{player.height}</p>
+        <p>{player.birth_date}</p>
         </div>
       })}
 
-      {/* <p>
+      <p>
         <button onClick={this.getPrev}>previous</button>
         <button onClick={this.getNext}>next</button>
-      </p> */}
+      </p>
     </Fragment>
   }
 

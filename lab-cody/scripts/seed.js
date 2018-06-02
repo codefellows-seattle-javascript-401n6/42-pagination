@@ -11,23 +11,18 @@ Super.remove({})
   .then(() => {
     return new Promise((resolve, reject) => {
       fs.readFile('../super_hero_powers.json', 'utf-8', (err, data) => {
-        let lines = data.split('\n');
-        let saves = lines.map(line => {
-          let [_, year, ...title] = line.split(',');
-          title = title.join(',');
-          return Super.create({ title, year });
-        });
-
-        Promise.all(saves)
-          .then(() => {
-            console.log('resolved', saves.length);
-            resolve();
-          })
-          .catch(() => {
-            console.log('rejected');
-            reject();
-          });
+        return Super.create({ names, powers });
       });
+
+      Promise.all(saves)
+        .then(() => {
+          console.log('resolved', saves.length);
+          resolve();
+        })
+        .catch(() => {
+          console.log('rejected');
+          reject();
+        });
     });
   })
   .then(() => {

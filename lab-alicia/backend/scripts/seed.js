@@ -4,17 +4,21 @@ const fs = require('fs');
 
 const Happiness = require('../models/happiness');
 const mongoose = require('mongoose');
-mongoose.connect('process.env.MONGODB_URI');
+mongoose.connect(process.env.MONGODB_URI);
 
 Happiness.remove({})
 .then(() => {
   return new Promise((resolve, reject) => {
-    fs.readFile('./happiness_ratings_2017.csv', 'utf-8', (err, data) => {
-      let lines = data.split('/n');
+    fs.readFile(`${__dirname}/data.csv`, 'utf-8', (err, data) => {
+      if (err) {
+        console.log('err', err)
+      };
+      let lines = data.split('\n');
       let saves = lines.map(line => {
-        let [_, rank, ...score] = line.split(',');
-        score = score.join(',');
-        return Happiness.create({rank, score})
+        let [country, rank, score] = line.split(',');
+        score = Math.floor(score*100)/100;
+        console.log(country, rank, score);
+        return Happiness.create({country, rank, score})
       });
 
       Promise.all(saves)
@@ -22,8 +26,8 @@ Happiness.remove({})
         console.log('resolved', saves.length);
         resolve();
       })
-      .catch(() => {
-        console.log('rejected');
+      .catch((err) => {
+        console.log('rejected', err);
         reject();
       });
     });

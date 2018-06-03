@@ -6,9 +6,7 @@ import ReactDOM from 'react-dom';
 
 class App extends Component {
   state = {
-    loading: true,
-    heroes: [],
-    powers: []
+    loading: true
   };
 
   render() {

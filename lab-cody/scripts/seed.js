@@ -3,15 +3,15 @@
 require('dotenv').config();
 
 const fs = require('fs');
-const Super = require('../models/super');
+const Songs = require('../models/songs');
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI);
 
-Super.remove({})
+Songs.remove({})
   .then(() => {
     return new Promise((resolve, reject) => {
-      fs.readFile('../super_hero_powers.json', 'utf-8', (err, data) => {
-        return Super.create({ names, powers });
+      fs.readFile('../topSpotifySongs2017.json', 'utf-8', (err, data) => {
+        return Songs.create({ names, powers });
       });
 
       Promise.all(saves)
@@ -26,10 +26,10 @@ Super.remove({})
     });
   })
   .then(() => {
-    return Super.find({});
+    return Songs.find({});
   })
-  .then(supers => {
-    console.log('queried:', supers.length);
+  .then(songs => {
+    console.log('queried:', songs.length);
   })
   .then(() => {
     console.log('disconnected');

@@ -6,7 +6,8 @@ import ReactDOM from 'react-dom';
 
 class App extends Component {
   state = {
-    loading: true
+    loading: true,
+    songs: []
   };
 
   render() {

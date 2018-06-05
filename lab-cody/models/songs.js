@@ -2,10 +2,23 @@
 
 const mongoose = require('mongoose');
 
-const SongSchema = new mongose.Schema({
-    id: string,
-    name: string,
-    artists: string,
-}
+const SongSchema = new mongoose.Schema({
+  id: String,
+  name: String,
+  artists: String,
+  danceability: Number,
+  energy: Number,
+  key: Number,
+  loudness: Number,
+  mode: Number,
+  speechiness: Number,
+  acousticness: Number,
+  instrumentalness: Number,
+  liveness: Number,
+  valence: Number,
+  tempo: Number,
+  duration_ms: Number,
+  time_signature: Number
+});
 
-module.exports = mongoose.model('Songs', SongsSchema);
+module.exports = mongoose.model('Songs', SongSchema);

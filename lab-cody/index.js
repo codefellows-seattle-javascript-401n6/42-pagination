@@ -7,12 +7,13 @@ mongoose.connect(process.env.MONGODB_URI);
 
 const express = require('express');
 const app = express();
+
 const songRouter = require('./routes/songs');
 
 app.use('/songs', songRouter);
 
 app.get('/welcome', (req, res) => {
-  console.log('dish out welcome');
+  console.log('hi there!');
   res.send('welcome!');
 });
 const Bundler = require('parcel-bundler');

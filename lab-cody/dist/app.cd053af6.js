@@ -261,7 +261,7 @@ if (undefined !== 'production') {
 }
 
 module.exports = emptyObject;
-},{}],10:[function(require,module,exports) {
+},{}],11:[function(require,module,exports) {
 "use strict";
 
 /**
@@ -298,7 +298,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],11:[function(require,module,exports) {
+},{}],10:[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -361,7 +361,7 @@ if (undefined !== 'production') {
 }
 
 module.exports = warning;
-},{"./emptyFunction":10}],19:[function(require,module,exports) {
+},{"./emptyFunction":11}],19:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -435,7 +435,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 }
 
 module.exports = checkPropTypes;
-},{"fbjs/lib/invariant":8,"fbjs/lib/warning":11,"./lib/ReactPropTypesSecret":19}],5:[function(require,module,exports) {
+},{"fbjs/lib/invariant":8,"fbjs/lib/warning":10,"./lib/ReactPropTypesSecret":19}],6:[function(require,module,exports) {
 /** @license React v16.4.0
  * react.development.js
  *
@@ -1904,7 +1904,7 @@ if (undefined !== "production") {
     module.exports = react;
   })();
 }
-},{"object-assign":7,"fbjs/lib/invariant":8,"fbjs/lib/emptyObject":9,"fbjs/lib/warning":11,"fbjs/lib/emptyFunction":10,"prop-types/checkPropTypes":12}],3:[function(require,module,exports) {
+},{"object-assign":7,"fbjs/lib/invariant":8,"fbjs/lib/emptyObject":9,"fbjs/lib/warning":10,"fbjs/lib/emptyFunction":11,"prop-types/checkPropTypes":12}],4:[function(require,module,exports) {
 'use strict';
 
 if (undefined === 'production') {
@@ -1912,7 +1912,7 @@ if (undefined === 'production') {
 } else {
   module.exports = require('./cjs/react.development.js');
 }
-},{"./cjs/react.development.js":5}],13:[function(require,module,exports) {
+},{"./cjs/react.development.js":6}],13:[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -2269,7 +2269,7 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":22}],6:[function(require,module,exports) {
+},{"./camelize":22}],5:[function(require,module,exports) {
 /** @license React v16.4.0
  * react-dom.development.js
  *
@@ -19551,7 +19551,7 @@ if (undefined !== "production") {
     module.exports = reactDom;
   })();
 }
-},{"fbjs/lib/invariant":8,"react":3,"fbjs/lib/warning":11,"fbjs/lib/ExecutionEnvironment":13,"object-assign":7,"fbjs/lib/emptyFunction":10,"prop-types/checkPropTypes":12,"fbjs/lib/getActiveElement":14,"fbjs/lib/shallowEqual":15,"fbjs/lib/containsNode":16,"fbjs/lib/emptyObject":9,"fbjs/lib/hyphenateStyleName":17,"fbjs/lib/camelizeStyleName":18}],4:[function(require,module,exports) {
+},{"fbjs/lib/invariant":8,"react":4,"fbjs/lib/warning":10,"fbjs/lib/ExecutionEnvironment":13,"object-assign":7,"fbjs/lib/emptyFunction":11,"prop-types/checkPropTypes":12,"fbjs/lib/getActiveElement":14,"fbjs/lib/shallowEqual":15,"fbjs/lib/containsNode":16,"fbjs/lib/emptyObject":9,"fbjs/lib/hyphenateStyleName":17,"fbjs/lib/camelizeStyleName":18}],3:[function(require,module,exports) {
 'use strict';
 
 function checkDCE() {
@@ -19587,7 +19587,7 @@ if (undefined === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":6}],2:[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":5}],2:[function(require,module,exports) {
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -19608,8 +19608,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// import SUPERS from '../supers';
-
 var App = function (_Component) {
   _inherits(App, _Component);
 
@@ -19625,13 +19623,50 @@ var App = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      loading: true,
-      heroes: [],
-      powers: []
+      songs: [],
+      isLoading: false,
+      total: 0,
+      min: null,
+      max: null,
+      index: 0
+    }, _this.getSongs = function () {
+      _this.setState({ isLoading: true });
+      fetch('/songs?skip=' + _this.state.index).then(function (res) {
+        return res.json();
+      }).then(function (json) {
+        _this.setState({
+          isLoading: false,
+          songs: json.songs,
+          total: json.total
+        });
+      });
+    }, _this.getPrev = function () {
+      console.log('getting prev');
+      var index = Math.max(0, _this.state.index - 10);
+      _this.setState({ index: index }, function () {
+        _this.getSongs();
+      });
+    }, _this.getNext = function () {
+      console.log('getting next');
+      var index = _this.state.index + 10;
+      _this.setState({ index: index }, function () {
+        _this.getSongs();
+      });
+    }, _this.setIndex = function (ev) {
+      ev.preventDefault();
+      var index = ev.target.index.value * 1;
+      _this.setState({ index: index }, function () {
+        _this.getSongs();
+      });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(App, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.getSongs();
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -19640,12 +19675,83 @@ var App = function (_Component) {
         _react2.default.createElement(
           'h1',
           null,
-          ' My app'
+          'Spotify top songs 2017'
         ),
         _react2.default.createElement(
           'p',
           null,
-          'this is where my hero data will go is this working still working?'
+          this.state.index,
+          '-',
+          this.state.index + 10,
+          ' of ',
+          this.state.total,
+          ' ',
+          'results.'
+        ),
+        _react2.default.createElement(
+          'form',
+          { onSubmit: this.setIndex },
+          _react2.default.createElement('input', { name: 'index', type: 'number', placeholder: 'skip to a number' }),
+          _react2.default.createElement(
+            'button',
+            { type: 'submit' },
+            'GO'
+          )
+        ),
+        this.state.loading && _react2.default.createElement(
+          'p',
+          null,
+          'Loading...'
+        ),
+        !this.state.loading && this.state.songs.map(function (song, i) {
+          return _react2.default.createElement(
+            'div',
+            { key: song.id },
+            _react2.default.createElement(
+              'p',
+              null,
+              'name: ',
+              song.name
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'artists: ',
+              song.artists
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'danceability: ',
+              song.danceability
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'energy: ',
+              song.energy
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'duration: ',
+              song.duration
+            )
+          );
+        }),
+        _react2.default.createElement(
+          'p',
+          null,
+          _react2.default.createElement(
+            'button',
+            { onClick: this.getPrev },
+            'previous 10'
+          ),
+          _react2.default.createElement(
+            'button',
+            { onClick: this.getNext },
+            'next 10'
+          )
         )
       );
     }
@@ -19656,7 +19762,7 @@ var App = function (_Component) {
 
 var root = document.getElementById('root');
 _reactDom2.default.render(_react2.default.createElement(App, null), root);
-},{"react":3,"react-dom":4}],24:[function(require,module,exports) {
+},{"react":4,"react-dom":3}],24:[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -19685,7 +19791,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54426' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '58513' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

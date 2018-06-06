@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/nba-salaries');
+mongoose.connect(process.env.MONGODB_URI);
 
 
 app.get('/', (req, res) => {

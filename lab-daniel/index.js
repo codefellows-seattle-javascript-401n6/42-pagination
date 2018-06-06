@@ -4,8 +4,9 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/nba-salaries');
+
 
 app.get('/', (req, res) => {
     res.send({data: [46, 2]});

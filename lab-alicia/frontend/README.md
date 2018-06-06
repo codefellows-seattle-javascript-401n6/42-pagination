@@ -7,7 +7,7 @@
 This is a full-stack react web application with a server and pagination persistence.
 
 ## Getting Started
-- Clone the repo to your local directory from [here] () 
+- Clone the repo to your local directory from [here] (https://github.com/alicialycan/42-pagination) 
 - Install all the necessary modules using the `npm install` command
 - Add an .env file with localhost: 3000 and a MONGODB_URI
 - Open browser to `localhost://3000`
@@ -19,7 +19,10 @@ This is a full-stack react web application with a server and pagination persiste
 
 ## Change Log
 ```
-2018-06-02 Setup server
+2018-06-05 Add README.md
+2018-06-03 Cleanup code
+2018-06-02 Data persistence working, MVP achieved
+2018-05-31 Setup server and seed data
 ```
 
 Data source: https://www.kaggle.com/unsdsn/world-happiness/data

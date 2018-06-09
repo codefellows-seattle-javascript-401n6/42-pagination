@@ -6,9 +6,7 @@ mongoose.connect(process.env.MONGODB_URI);
 const express = require('express');
 const app = express();
 
-app.get('/api/data', (req, res) => {
-  res.send({data:[12,3]});
-});
+app.use('/api/user', require('./routes/userRoutes.js'));
 
 const Bundler = require('parcel-bundler');
 const bundler = new Bundler('./public/index.html');

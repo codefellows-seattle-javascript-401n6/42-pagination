@@ -30,7 +30,6 @@ class OtherPage extends Component {
     <p><Link to="/">Home</Link></p>
     <p><Link to="/users">User</Link></p>
 
-
     </Fragment>
   }
 }

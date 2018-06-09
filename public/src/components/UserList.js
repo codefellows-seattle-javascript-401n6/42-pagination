@@ -2,7 +2,7 @@
 // const fs = require('fs');
  
 import React, {Component, Fragment} from 'react';
-import USERS from '../scripts/MOCK_DATA.js'
+import USERS from '../scripts/read.js'
 
 class USERLIST extends Component {
   render() {

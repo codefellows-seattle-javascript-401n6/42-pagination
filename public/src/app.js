@@ -41,7 +41,7 @@ class App extends Component {
       <h1>My Router App</h1>
       <Route exact path="/" component={HomePage}/>
       <Route path="/otherpage" component={OtherPage}/>
-      <Route path="/users" component={USERLIST}/>
+      <Route path="/user" component={USERLIST}/>
       </Fragment>
     </BrowserRouter>
   }

@@ -41,7 +41,12 @@ export default class USERLIST extends Component {
     <p>
     {this.state.index}-{this.state.index + 10} of {this.state.total}users
     </p>
-    {this.state.users.map(user => {
+    <p>
+        <button onClick={this.prev}>prev</button>
+        <button onClick={this.next}>next</button>
+      </p>
+    {this.isLoading && <p>loading...</p>}
+    {!this.isLoading && this.state.users.map(user => {
       return <div key={user.id}>
         {user.originalId} {user.first_name}  {user.last_name} 
         </div>

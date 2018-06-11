@@ -1,0 +1,38 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "## Submission Instructions * Fork this repo * Submit on Canvas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SCUBAGUYPNW/42-pagination.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SCUBAGUYPNW/42-pagination/issues"
+  },
+  "homepage": "https://github.com/SCUBAGUYPNW/42-pagination#readme",
+  "dependencies": {
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cors": "^2.8.4",
+    "csv": "^3.1.0",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.1.4",
+    "parcel-bundler": "^1.8.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/*",
+      "dist/*",
+      ".catch/*"
+    ]
+  }
+}
